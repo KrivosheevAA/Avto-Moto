@@ -1,0 +1,14 @@
+.page-header {
+  width: 100%;
+  background-color: $color-grey;
+  padding: 15px 0 15px 0;
+}
+
+.page-header__container {
+  display: flex;
+  align-items: center;
+}
+
+.page-header__logo {
+  display: flex;
+}
