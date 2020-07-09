@@ -1,0 +1,36 @@
+.page-footer {
+  width: 100%;
+  background-color: $color-grey;
+  padding: 30px 0 30px 0;
+}
+
+.page-footer__container {
+  display: flex;
+  align-items: center;
+}
+
+.page-footer__menu {
+  width: 100%;
+}
+
+.page-footer__menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.page-footer__menu-item {
+  margin-left: 57px;
+
+  a {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: $color-dark-grey;
+  }
+}
+

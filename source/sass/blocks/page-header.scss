@@ -1,7 +1,7 @@
 .page-header {
   width: 100%;
   background-color: $color-grey;
-  padding: 15px 0 15px 0;
+  padding: 12px 0 12px 0;
 }
 
 .page-header__container {
@@ -11,4 +11,25 @@
 
 .page-header__logo {
   display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
+.page-header__logo-name {
+  padding-left: 20px;
+}
+
+.page-header__logo-name--first {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: $color-dark-grey;
+  margin: 0;
+}
+
+.page-header__logo-name--second {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: $color-dark-grey;
+  margin: 0;
 }
