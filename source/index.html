@@ -78,12 +78,38 @@
   </header>
   <main>
 <section class="card">
-  <div class="container card__container"></div>
-  <div class="card__slider">
-    <p>Здесь слайдер</p>
+  <div class="container card__container">
+  <div class="card__slider slider">
+    <div class="slider__wrapper">
+      <ul class="slider__slides">
+        <li class="slider__slide">
+          <picture>
+
+          </picture>
+        </li>
+      </ul>
+      <div class="slider__controls">
+        <button class="slider__button slider__button--prev" type="button">
+          <span></span>
+        </button>
+        <ul class="slider__thumbs">
+          <li class="slider__thumb">
+            <button type="button">
+              <picture>
+
+              </picture>
+            </button>
+          </li>
+        </ul>
+        <button class="slider__button slider__button--next" type="button">
+          <span></span>
+        </button>
+      </div>
+    </div>
   </div>
   <div class="card__specification">
     <h1>Марпех 11</h1>
+  </div>
   </div>
 </section>
 <section class="tabs">
@@ -119,5 +145,6 @@
       </div>
     </div>
   </footer>
+  <script src="js/bundle.js"></script>
 </body>
 </html>

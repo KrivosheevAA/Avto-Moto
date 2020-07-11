@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-fuel" viewBox="0 0 24 22">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-arrow" viewBox="0 0 20 13">
+<path d="M18.9873 6.17188L13.0747 0.368597M18.9873 6.17188L13.3001 11.9692M18.9873 6.17188L0.0150977 6.35128" stroke="#48494D"/>
+</symbol><symbol id="icon-fuel" viewBox="0 0 24 22">
 <rect x="1.74597" y="0.75" width="10.9495" height="19.9131" rx="1.25" stroke="#48494D" stroke-width="1.5"/>
 <mask id="path-2-inside-1" fill="white">
 <rect x="3.09686" y="3.0968" width="8.2583" height="7.22601" rx="1"/>
