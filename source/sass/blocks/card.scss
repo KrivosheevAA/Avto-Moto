@@ -1,0 +1,117 @@
+.card {
+  padding-top: 90px;
+  padding-bottom: 45px;
+}
+
+.card__container {
+  display: flex;
+}
+
+.card__specification {
+  margin-left: 54px;
+}
+
+.card__specification-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 41px;
+  color: $color-dark-grey;
+}
+
+.card__specification-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.card__specification-item {
+  padding-left: 8px;
+  text-align: center;
+
+  p {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: $color-dark-grey;
+    opacity: 0.5;
+  }
+}
+
+.card__specification-img {
+  opacity: 0.5;
+}
+
+.card__specification-price {
+  display: flex;
+  align-items: center;
+}
+
+.card__specification-price--new {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 48px;
+  color: $color-dark-grey;
+}
+
+.card__specification-price--old {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 27px;
+  color: $color-dark-grey;
+  opacity: 0.5;
+  padding-left: 33px;
+  position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 25px;
+      width: 130px;
+      height: 1px;
+      background-color: #48494d;
+      opacity: .5;
+      transform: rotate(-5deg);
+  }
+}
+
+.card__specification-button {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    font-family: $font;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.card__specification-button--request {
+  color: $color-white;
+  background-color: $color-red;
+  max-width: 196px;
+  min-height: 52px;
+  margin-bottom: 16px;
+}
+
+.card__specification-button--credit {
+  color: $color-red;
+  min-height: 52px;
+  max-width: 222px;
+  border: 1px solid $color-red;
+  background-color: $color-white;
+}
