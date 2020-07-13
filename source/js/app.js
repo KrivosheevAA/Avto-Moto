@@ -1,2 +1,3 @@
-import test from './test'
-console.log(test.a);
+import { initPictureElement, initUseElement } from './main.js';
+initPictureElement();
+initUseElement();

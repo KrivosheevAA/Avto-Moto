@@ -95,24 +95,30 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ "./test.js");
+/* harmony import */ var _main_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main.js */ "./main.js");
 
-console.log(_test__WEBPACK_IMPORTED_MODULE_0__["default"].a);
+Object(_main_js__WEBPACK_IMPORTED_MODULE_0__["initPictureElement"])();
+Object(_main_js__WEBPACK_IMPORTED_MODULE_0__["initUseElement"])();
 
 /***/ }),
 
-/***/ "./test.js":
+/***/ "./main.js":
 /*!*****************!*\
-  !*** ./test.js ***!
+  !*** ./main.js ***!
   \*****************/
-/*! exports provided: default */
+/*! exports provided: initPictureElement, initUseElement */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  a: 123
-});
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initPictureElement", function() { return initPictureElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initUseElement", function() { return initUseElement; });
+function initPictureElement() {
+  document.createElement("picture");
+}
+function initUseElement() {
+  svg4everybody();
+}
 
 /***/ })
 
