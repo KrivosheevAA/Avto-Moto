@@ -16,7 +16,7 @@
     text-align: center;
     color: $color-dark-grey;
     background-color: $color-white;
-    border: 1px solid $color-light-grey;
+    border: 1px solid $color-grey-1;
   }
 }
 
@@ -25,6 +25,14 @@
   background-color: $color-red;
 }
 
-.tabs__content {
+.tabs__content-specifications {
+  table {
+    min-width: 565px;
+  }
 
+  td {
+    border-bottom: 1px solid $color-grey-1;
+    padding-bottom: 8px;
+    padding-top: 20px;
+  }
 }
