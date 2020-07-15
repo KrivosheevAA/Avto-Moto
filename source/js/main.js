@@ -1,7 +1,11 @@
-export function initPictureElement() {
+'use strict';
+
+function initPictureElement () {
   document.createElement( "picture" );
 }
 
-export function initUseElement() {
+function initUseElement () {
   svg4everybody();
 }
+
+export default { initPictureElement, initUseElement };

@@ -97,6 +97,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main.js */ "./main.js");
 
+
+
 Object(_main_js__WEBPACK_IMPORTED_MODULE_0__["initPictureElement"])();
 Object(_main_js__WEBPACK_IMPORTED_MODULE_0__["initUseElement"])();
 
@@ -106,19 +108,25 @@ Object(_main_js__WEBPACK_IMPORTED_MODULE_0__["initUseElement"])();
 /*!*****************!*\
   !*** ./main.js ***!
   \*****************/
-/*! exports provided: initPictureElement, initUseElement */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initPictureElement", function() { return initPictureElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initUseElement", function() { return initUseElement; });
+
+
 function initPictureElement() {
   document.createElement("picture");
 }
+
 function initUseElement() {
   svg4everybody();
 }
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  initPictureElement: initPictureElement,
+  initUseElement: initUseElement
+});
 
 /***/ })
 
