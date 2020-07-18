@@ -47,18 +47,36 @@
       <div class="container card__container">
         <div class="card__slider slider">
           <div class="slider__wrapper">
-            <ul class="slider__slides">
-              <li class="slider__slide slider__slide--new">
-                <picture>
-                  <!-- 1х: 600px; 2x: 1200px -->
-                  <source type="image/webp" srcset="img/desktop_slide_1.webp, img/desktop_slide_1@2x.webp 2x">
-                  <!-- 1х: 600px; 2x: 1200px -->
-                  <img src="img/desktop_slide_1.jpg" srcset="img/desktop_slide_1@2x.jpg 2x" alt="автомобиль" width="600" height="375">
-                </picture>
-              </li>
-            </ul>
+            <div class="slider__container">
+              <ul class="slider__slides">
+                <li class="slider__slide slider__slide--new">
+                  <picture>
+                    <!-- 1х: 600px; 2x: 1200px -->
+                    <source type="image/webp" srcset="img/desktop_slide_1.webp, img/desktop_slide_1@2x.webp 2x">
+                    <!-- 1х: 600px; 2x: 1200px -->
+                    <img src="img/desktop_slide_1.jpg" srcset="img/desktop_slide_1@2x.jpg 2x" alt="автомобиль" width="600" height="375">
+                  </picture>
+                </li>
+                <li class="slider__slide">
+                  <picture>
+                    <!-- 1х: 600px; 2x: 1200px -->
+                    <source type="image/webp" srcset="img/desktop_slide_2.webp, img/desktop_slide_2@2x.webp 2x">
+                    <!-- 1х: 600px; 2x: 1200px -->
+                    <img src="img/desktop_slide_2.jpg" srcset="img/desktop_slide_2@2x.jpg 2x" alt="вид внутри автомобиля" width="600" height="375">
+                  </picture>
+                </li>
+                <li class="slider__slide">
+                   <picture>
+                      <!-- 1х: 600px; 2x: 1200px -->
+                      <source type="image/webp" srcset="img/desktop_slide_3.webp, img/desktop_slide_3@2x.webp 2x">
+                      <!-- 1х: 600px; 2x: 1200px -->
+                      <img src="img/desktop_slide_3.jpg" srcset="img/desktop_slide_3@2x.jpg 2x" alt="спидометр" width="600" height="375">
+                  </picture>
+                </li>
+              </ul>
+            </div>
             <div class="slider__controls">
-              <button class="slider__button slider__button--prev" type="button" disable>
+              <button class="slider__button slider__button--prev" type="button">
                 <span>
                   <svg width="20" height="13">
                     <use xlink:href="img/sprite_auto.svg#icon-arrow"></use>
@@ -135,13 +153,13 @@
               <p>1.4 л</p>
             </li>
           </ul>
-          <div class="card__specification-price">
-            <p class="card__specification-price--new">2 300 000 &#8381;</p>
-            <p class="card__specification-price--old">2 400 000 &#8381;</p>
+          <div class="card__prices">
+            <p class="card__price card__price--new">2 300 000 &#8381;</p>
+            <p class="card__price card__price--old">2 400 000 &#8381;</p>
           </div>
-          <div class="card__specification-button">
-            <button class="card__specification-button--request" type="button">ОСТАВИТЬ ЗАЯВКУ</button>
-            <button class="card__specification-button--credit" type="button">В КРЕДИТ ОТ 11 000 &#8381;</button>
+          <div class="card__actions">
+            <a href="#" class="card__button button button--primary">ОСТАВИТЬ ЗАЯВКУ</a>
+            <a href="#" class="card__button button button--outline">В КРЕДИТ ОТ 11 000 &#8381;</a>
           </div>
         </div>
       </div>
@@ -244,13 +262,13 @@
             <span class="visually-hidden">Закрыть</span>
         </button>
         <h2 class="pop-up__title">Оставить отзыв</h2>
-        <input type="text">
-        <input type="text">
-        <input type="text">
+        <label><input type="text"></label>
+        <label><input type="text"></label>
+        <label><input type="text"></label>
         <p>Оцените товар:</p>
         <textarea></textarea>
         <button type="button">Оставить отзыв</button>
-      </section>
+  </section>
   <script src="js/bundle.js"></script>
 </body>
 </html>

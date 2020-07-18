@@ -90,143 +90,36 @@
 /*!****************!*\
   !*** ./app.js ***!
   \****************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main.js */ "./main.js");
-/* harmony import */ var _svg4everybody_min_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./svg4everybody.min.js */ "./svg4everybody.min.js");
-/* harmony import */ var _svg4everybody_min_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_svg4everybody_min_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _slider_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./slider.js */ "./slider.js");
-
-
-
-Object(_main_js__WEBPACK_IMPORTED_MODULE_0__["initPictureElement"])();
-Object(_main_js__WEBPACK_IMPORTED_MODULE_0__["initUseElement"])();
-Object(_slider_js__WEBPACK_IMPORTED_MODULE_2__["pushNextButton"])();
-console.log(nextButton);
-
-/***/ }),
-
-/***/ "./main.js":
-/*!*****************!*\
-  !*** ./main.js ***!
-  \*****************/
-/*! exports provided: initPictureElement, initUseElement */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initPictureElement", function() { return initPictureElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initUseElement", function() { return initUseElement; });
-function initPictureElement() {
-  document.createElement("picture");
-}
-
-function initUseElement() {
-  svg4everybody();
-}
-
-
-
-/***/ }),
-
-/***/ "./slider.js":
-/*!*******************!*\
-  !*** ./slider.js ***!
-  \*******************/
-/*! exports provided: pushNextButton */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pushNextButton", function() { return pushNextButton; });
+var counter = 0;
 var prevButton = document.querySelector('.slider__button--prev');
 var nextButton = document.querySelector('.slider__button--next');
-var bigPictureSlide = document.querySelector('.slider__slide');
+var bigPictureSlide = document.querySelectorAll('.slider__slide');
 var smallPictureSlide = document.querySelectorAll('.slider__thumb');
-var pushNextButton = function pushNextButton() {
-  nextButton.addEventListener('click', function () {});
-};
+var containerSlide = document.querySelector('.slider__slides');
+prevButton.addEventListener('click', function () {
+  counter--;
 
-/***/ }),
-
-/***/ "./svg4everybody.min.js":
-/*!******************************!*\
-  !*** ./svg4everybody.min.js ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-!function (a, b) {
-   true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-    return a.svg4everybody = b();
-  }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : undefined;
-}(this, function () {
-  /*! svg4everybody v2.0.0 | github.com/jonathantneal/svg4everybody */
-  function a(a, b) {
-    if (b) {
-      var c = !a.getAttribute("viewBox") && b.getAttribute("viewBox"),
-          d = document.createDocumentFragment(),
-          e = b.cloneNode(!0);
-
-      for (c && a.setAttribute("viewBox", c); e.childNodes.length;) {
-        d.appendChild(e.firstChild);
-      }
-
-      a.appendChild(d);
-    }
+  if (counter <= 0) {
+    counter = 0;
+    prevButton.disabled = true;
   }
 
-  function b(b) {
-    b.onreadystatechange = function () {
-      if (4 === b.readyState) {
-        var c = document.createElement("x");
-        c.innerHTML = b.responseText, b.s.splice(0).map(function (b) {
-          a(b[0], c.querySelector("#" + b[1].replace(/(\W)/g, "\\$1")));
-        });
-      }
-    }, b.onreadystatechange();
+  nextButton.disabled = false;
+  containerSlide.style.transform = "translateX(".concat(-600 * counter, "px)");
+});
+nextButton.addEventListener('click', function () {
+  counter++;
+
+  if (counter >= bigPictureSlide.length - 1) {
+    counter = bigPictureSlide.length - 1;
+    nextButton.disabled = true;
   }
 
-  function c(c) {
-    function d() {
-      for (var c; c = e[0];) {
-        var j = c.parentNode;
-
-        if (j && /svg/i.test(j.nodeName)) {
-          var k = c.getAttribute("xlink:href");
-
-          if (f && (!g || g(k, j, c))) {
-            var l = k.split("#"),
-                m = l[0],
-                n = l[1];
-
-            if (j.removeChild(c), m.length) {
-              var o = i[m] = i[m] || new XMLHttpRequest();
-              o.s || (o.s = [], o.open("GET", m), o.send()), o.s.push([j, n]), b(o);
-            } else a(j, document.getElementById(n));
-          }
-        }
-      }
-
-      h(d, 17);
-    }
-
-    c = c || {};
-    var e = document.getElementsByTagName("use"),
-        f = "shim" in c ? c.shim : /\bEdge\/12\b|\bTrident\/[567]\b|\bVersion\/7.0 Safari\b/.test(navigator.userAgent) || (navigator.userAgent.match(/AppleWebKit\/(\d+)/) || [])[1] < 537,
-        g = c.validate,
-        h = window.requestAnimationFrame || setTimeout,
-        i = {};
-    f && d();
-  }
-
-  return c;
+  prevButton.disabled = false;
+  containerSlide.style.transform = "translateX(".concat(-600 * counter, "px)");
 });
 
 /***/ })

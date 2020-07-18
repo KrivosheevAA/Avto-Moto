@@ -17,6 +17,7 @@
   font-size: 30px;
   line-height: 41px;
   color: $color-dark-grey;
+  margin: 0 0 29px 0;
 }
 
 .card__specification-list {
@@ -48,12 +49,12 @@
   opacity: 0.5;
 }
 
-.card__specification-price {
+.card__prices {
   display: flex;
   align-items: center;
 }
 
-.card__specification-price--new {
+.card__price--new {
   font-style: normal;
   font-weight: bold;
   font-size: 35px;
@@ -61,7 +62,7 @@
   color: $color-dark-grey;
 }
 
-.card__specification-price--old {
+.card__price--old {
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -85,22 +86,23 @@
   }
 }
 
-.card__specification-button {
+.card__actions {
   display: flex;
   flex-direction: column;
-
-  button {
-    font-family: $font;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 19px;
-    text-align: center;
-    text-transform: uppercase;
-  }
 }
 
-.card__specification-button--request {
+.card__button {
+  font-family: $font;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
+}
+
+.button--primary {
   color: $color-white;
   background-color: $color-red;
   max-width: 196px;
@@ -109,7 +111,7 @@
   border: none;
 }
 
-.card__specification-button--credit {
+.button--outline {
   color: $color-red;
   min-height: 52px;
   max-width: 222px;

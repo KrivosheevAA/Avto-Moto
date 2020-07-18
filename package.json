@@ -55,6 +55,8 @@
     "node": "8.15"
   },
   "dependencies": {
-    "del": "^4.1.1"
+    "del": "^4.1.1",
+    "picturefill": "^3.0.3",
+    "svg4everybody": "^2.1.9"
   }
 }
