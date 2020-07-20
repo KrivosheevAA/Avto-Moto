@@ -25,14 +25,27 @@
   background-color: $color-red;
 }
 
-.tabs__content-specifications {
-  table {
-    min-width: 565px;
-  }
+.tabs__content-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  td {
-    border-bottom: 1px solid $color-grey-1;
-    padding-bottom: 8px;
-    padding-top: 20px;
-  }
+.tabs__content-item {
+  width: 100%;
+}
+
+.tabs__table {
+  min-width: 565px;
+}
+
+
+.tabs__table-td {
+  border-bottom: 1px solid $color-grey-1;
+  padding-bottom: 8px;
+  padding-top: 20px;
+}
+
+.tabs__table-td--second {
+  text-align: right;
 }
