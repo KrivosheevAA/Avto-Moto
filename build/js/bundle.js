@@ -93,6 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+//slider
 var counter = 0;
 var prevButton = document.querySelector('.slider__button--prev');
 var nextButton = document.querySelector('.slider__button--next');
@@ -120,7 +121,32 @@ nextButton.addEventListener('click', function () {
 
   prevButton.disabled = false;
   containerSlide.style.transform = "translateX(".concat(-600 * counter, "px)");
-});
+}); //табы
+
+var buttonTabs = document.querySelector('.tabs__control-list');
+var tabsContentItem = document.querySelectorAll('.tabs__content-item');
+var buttonActive = document.querySelectorAll('.tabs__control-item');
+buttonTabs.addEventListener('click', showContent);
+
+function showContent(event) {
+  if (event.target.className == 'tabs__control-item') {
+    var dataTab = event.target.getAttribute('data-tab');
+
+    for (var k = 0; k < buttonActive.length; k++) {
+      buttonActive[k].classList.remove('tabs__control-item--active');
+    }
+
+    event.target.classList.add('tabs__control-item--active');
+
+    for (var i = 0; i < tabsContentItem.length; i++) {
+      if (dataTab == i) {
+        tabsContentItem[i].classList.add('tabs__content-item--show');
+      } else {
+        tabsContentItem[i].classList.remove('tabs__content-item--show');
+      }
+    }
+  }
+}
 
 /***/ })
 

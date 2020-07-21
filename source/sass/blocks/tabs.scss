@@ -2,25 +2,26 @@
   width: 100%;
 }
 
-.tabs__control {
+.tabs__control-list {
   display: flex;
-
-  button {
-    min-width: 195px;
-    min-height: 50px;
-    font-family: $font;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 27px;
-    text-align: center;
-    color: $color-dark-grey;
-    background-color: $color-white;
-    border: 1px solid $color-grey-1;
-  }
+  list-style: none;
 }
 
-.tabs__control--active {
+.tabs__control-item {
+  min-width: 195px;
+  min-height: 50px;
+  font-family: $font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  color: $color-dark-grey;
+  background-color: $color-white;
+  border: 1px solid $color-grey-1;
+}
+
+.tabs__control-item--active {
   color: $color-white;
   background-color: $color-red;
 }
@@ -33,6 +34,11 @@
 
 .tabs__content-item {
   width: 100%;
+  display: none;
+}
+
+.tabs__content-item--show {
+  display: block;
 }
 
 .tabs__table {

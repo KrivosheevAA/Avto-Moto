@@ -167,13 +167,13 @@
     <section class="discription">
       <div class="container discription__container">
         <div class="discription__tabs tabs">
-          <ul class="tabs__control">
-            <li><button type="button">Характеристики</button></li>
-            <li><button type="button">Отзывы</button></li>
-            <li><button type="button">Контакты</button></li>
+          <ul class="tabs__control-list">
+            <li><button type="button" class="tabs__control-item tabs__control-item--active" data-tab="0">Характеристики</button></li>
+            <li><button type="button" class="tabs__control-item" data-tab="1">Отзывы</button></li>
+            <li><button type="button" class="tabs__control-item" data-tab="2">Контакты</button></li>
           </ul>
           <ul class="tabs__content-list">
-            <li class="tabs__content-item tabs__content-item--specifications">
+            <li class="tabs__content-item tabs__content-item--show">
               <table class="tabs__content-table tabs__table" cellspacing="0">
                 <tbody>
                   <tr class="tabs__table-tr">
@@ -207,10 +207,10 @@
                 </tbody>
               </table>
             </li>
-            <li class="tabs__content-item tabs__content-item--reviews">
+            <li class="tabs__content-item">
               <button type="button">Оставить отзыв</button>
             </li>
-            <li class="tabs__content-item tabs__content-item--contacts">
+            <li class="tabs__content-item">
               <address>
                 <h3>Адрес</h3>
                 <p>Санкт-Петербург, набережная реки Карповки, дом 5</p>
