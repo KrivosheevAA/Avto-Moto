@@ -50,3 +50,14 @@ buttonTabs.addEventListener('click', showContent);
     }
   }
 }
+
+//яндекс карта
+
+ymaps.ready(init);
+
+function init () {
+    var map = new ymaps.Map('map', {
+        center: [59.968137, 30.316263],
+        zoom: 9
+    });
+}

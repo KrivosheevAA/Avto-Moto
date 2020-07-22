@@ -211,17 +211,21 @@
               <button type="button">Оставить отзыв</button>
             </li>
             <li class="tabs__content-item">
-              <address>
-                <h3>Адрес</h3>
-                <p>Санкт-Петербург, набережная реки Карповки, дом 5</p>
-                <h3>Режим работы</h3>
-                <p>Ежедневно, с 10:00 до 21:00</p>
-                <h3>Телефон</h3>
-                <p><a href="tel:88003335599">8 (800) 333-55-99</a></p>
-                <h3>E-mail</h3>
-                <p><a href="mailto:info@avto-moto.ru">info@avto-moto.ru</a></p>
-              </address>
-              <p>Карта по API</p>
+              <div class="tabs__content-contacts contacts">
+                <address class="contacts__adress">
+                  <dl>
+                    <dt>Адрес</dt>
+                    <dd>Санкт-Петербург, набережная реки Карповки, дом 5</dd>
+                    <dt>Режим работы</dt>
+                    <dd>Ежедневно, с 10:00 до 21:00</dd>
+                    <dt>Телефон</dt>
+                    <dd><a href="tel:88003335599">8 (800) 333-55-99</a></dd>
+                    <dt>E-mail</dt>
+                    <dd><a href="mailto:info@avto-moto.ru">info@avto-moto.ru</a></dd>
+                  </dl>
+                </address>
+                <div class="contacts__adress-map" id="map"></div>
+              </div>
             </li>
           </ul>
         </div>
@@ -269,6 +273,7 @@
         <textarea></textarea>
         <button type="button">Оставить отзыв</button>
   </section>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ba3e8120-b779-499f-8aac-7caf36983d11" type="text/javascript"></script>
   <script src="js/bundle.js"></script>
 </body>
 </html>
