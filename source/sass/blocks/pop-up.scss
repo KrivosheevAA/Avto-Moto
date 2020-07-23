@@ -1,0 +1,140 @@
+.pop-up {
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: none;
+  overflow: auto;
+}
+
+.pop-up__show {
+  display: block;
+}
+
+.pop-up__container {
+  background-color: $color-grey;
+  width: 698px;
+  min-height: 415px;
+  position: fixed;
+  left: 30%;
+  top: 30%;
+  z-index: 2;
+  padding: 25px 25px 35px 35px;
+}
+
+.pop-up__close {
+  position: absolute;
+  top: 25px;
+  right: 37px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: $color-grey-2
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.pop-up__title {
+  margin: 0;
+  margin-bottom: 47px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 34px;
+  color: $color-dark-grey;
+  text-align: center;
+}
+
+.pop-up__form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pop-up__group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 16px;
+  }
+
+  input {
+    width: 300px;
+    height: 50px;
+    padding: 15px 0 15px 25px;
+
+    &::placeholder {
+      font-family: $font;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 19px;
+      color: $color-dark-grey;
+    }
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: $color-black;
+    margin: 0;
+    margin-bottom: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 6px;
+  }
+
+  textarea {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: $color-dark-grey;
+    width: 300px;
+    min-height: 118px;
+    resize: none;
+  }
+}
+
+.pop-up__button {
+  font-family: $font;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
+  color: $color-white;
+  background-color: $color-red;
+  max-width: 190px;
+  min-height: 52px;
+  border: none;
+  margin-top: 19px;
+}

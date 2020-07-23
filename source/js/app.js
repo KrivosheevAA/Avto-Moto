@@ -61,3 +61,36 @@ function init () {
         zoom: 9
     });
 }
+
+
+//поп ап
+
+let rewiewsButton = document.querySelector('.reviews__button');
+let popUpForm = document.querySelector('.pop-up');
+let buttonClose = document.querySelector('.pop-up__close');
+
+rewiewsButton.addEventListener('click', openPopUp);
+
+function openPopUp () {
+  popUpForm.classList.add('pop-up__show');
+}
+
+buttonClose.addEventListener('click', function () {
+  event.preventDefault();
+  popUpForm.classList.remove('pop-up__show');
+});
+
+window.addEventListener('keydown', function (event) {
+  if (event.keyCode === 27) {
+    event.preventDefault();
+    if (popUpForm.classList.contains("pop-up__show")) {
+      popUpForm.classList.remove("pop-up__show");
+    }
+  }
+});
+
+window.addEventListener('click', function (event) {
+  if (event.target == popUpForm) {
+    popUpForm.classList.remove('pop-up__show');
+  }
+});

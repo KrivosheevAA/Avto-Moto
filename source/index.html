@@ -208,7 +208,9 @@
               </table>
             </li>
             <li class="tabs__content-item">
-              <button type="button">Оставить отзыв</button>
+              <div class="tabs__content-reviews reviews">
+                <button class="reviews__button" type="button">Оставить отзыв</button>
+              </div>
             </li>
             <li class="tabs__content-item">
               <div class="tabs__content-contacts contacts">
@@ -224,7 +226,9 @@
                     <dd><a href="mailto:info@avto-moto.ru">info@avto-moto.ru</a></dd>
                   </dl>
                 </address>
-                <div class="contacts__adress-map" id="map"></div>
+                <div class="contacts__adress-map">
+                  <div id="map"></div>
+                </div>
               </div>
             </li>
           </ul>
@@ -262,16 +266,40 @@
     </div>
   </footer>
   <section class="pop-up">
-        <button type="button" class="pop-up__close">
-            <span class="visually-hidden">Закрыть</span>
-        </button>
-        <h2 class="pop-up__title">Оставить отзыв</h2>
-        <label><input type="text"></label>
-        <label><input type="text"></label>
-        <label><input type="text"></label>
-        <p>Оцените товар:</p>
-        <textarea></textarea>
-        <button type="button">Оставить отзыв</button>
+    <div class="pop-up__container">
+      <button type="button" class="pop-up__close">
+        <span class="visually-hidden">Закрыть</span>
+      </button>
+      <h2 class="pop-up__title">Оставить отзыв</h2>
+      <form class="pop-up__form" id="form" action="#" method="post">
+        <div class="pop-up__group">
+          <label><input type="text" name="name" placeholder="Имя" required></label>
+          <label><input type="text" name="advantages" placeholder="Достоинства"></label>
+          <label><input type="text" name="disadvantages" placeholder="Недостатки"></label>
+        </div>
+        <div class="pop-up__group">
+          <p>Оцените товар:
+            <svg width="27" height="27">
+              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+            </svg>
+            <svg width="27" height="27">
+              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+            </svg>
+            <svg width="27" height="27">
+              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+            </svg>
+            <svg width="27" height="27">
+              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+            </svg>
+            <svg width="27" height="27">
+              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+            </svg>
+          </p>
+          <textarea placeholder="* Комментарий" name="comment" required></textarea>
+        </div>
+        <button class="pop-up__button" form="form" type="submit">Оставить отзыв</button>
+      </form>
+    </div>
   </section>
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ba3e8120-b779-499f-8aac-7caf36983d11" type="text/javascript"></script>
   <script src="js/bundle.js"></script>

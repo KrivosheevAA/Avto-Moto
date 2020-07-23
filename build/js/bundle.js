@@ -156,7 +156,44 @@ function init() {
     center: [59.968137, 30.316263],
     zoom: 9
   });
+} // var myMap;
+// ymaps.ready(init);
+// function init () {
+//     myMap = new ymaps.Map('map', {
+//         center: [55.76, 37.64], // Москва
+//         zoom: 10
+//     })
+// }
+//поп ап
+
+
+var rewiewsButton = document.querySelector('.reviews__button');
+var popUpForm = document.querySelector('.pop-up');
+var buttonClose = document.querySelector('.pop-up__close');
+rewiewsButton.addEventListener('click', openPopUp);
+
+function openPopUp() {
+  popUpForm.classList.add('pop-up__show');
 }
+
+buttonClose.addEventListener('click', function () {
+  event.preventDefault();
+  popUpForm.classList.remove('pop-up__show');
+});
+window.addEventListener('keydown', function (event) {
+  if (event.keyCode === 27) {
+    event.preventDefault();
+
+    if (popUpForm.classList.contains("pop-up__show")) {
+      popUpForm.classList.remove("pop-up__show");
+    }
+  }
+});
+window.addEventListener('click', function (event) {
+  if (event.target == popUpForm) {
+    popUpForm.classList.remove('pop-up__show');
+  }
+});
 
 /***/ })
 
