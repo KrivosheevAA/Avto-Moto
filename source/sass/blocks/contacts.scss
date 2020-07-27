@@ -1,5 +1,6 @@
 .contacts {
   display: flex;
+  margin-top: 30px;
 }
 
 
@@ -35,4 +36,9 @@
   padding: 0;
   margin: 0;
   position: relative;
+}
+
+.contacts__adress-map-yandex {
+  width: 431px;
+  height: 271px;
 }
