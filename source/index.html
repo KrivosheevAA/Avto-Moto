@@ -212,10 +212,15 @@
                 <div class="reviews__container">
                   <h2 class="reviews__avtor"></h2>
                     <ul class="reviews__list">
-                      <li class="reviews__item reviews__item--dignity"></li>
-                      <li class="reviews__item reviews__item--disadvantage"></li>
+                      <li class="reviews__item"><span>+</span>Достоинства
+                        <p class="reviews__item reviews__item--dignity"></p>
+                      </li>
+                      <li class="reviews__item"><span>-</span>Недостатки
+                        <p class="reviews__item reviews__item--disadvantage"></p>
+                      </li>
                     </ul>
-                    <p class="reviews__comment"></p>
+                    <p class="reviews__comment">Комментарий</p>
+                    <p class="reviews__comment reviews__comment--avtor"></p>
                     <div class="reviews__star"><span>Советуют</span></div>
                     <span>Время</span>
                     <span>Ответить</span>
@@ -282,11 +287,11 @@
         <span class="visually-hidden">Закрыть</span>
       </button>
       <h2 class="pop-up__title">Оставить отзыв</h2>
-      <form class="pop-up__form" id="form" action="#" method="post">
+      <form class="pop-up__form" id="form" action="index.html" method="GET" enctype="multipart/form-data">
         <div class="pop-up__group">
-          <label><input type="text" name="name" placeholder="Имя" required></label>
-          <label><input type="text" name="advantages" placeholder="Достоинства"></label>
-          <label><input type="text" name="disadvantages" placeholder="Недостатки"></label>
+          <label><input type="text" id="name" name="name" placeholder="Имя" required></label>
+          <label><input type="text" id="advantages" name="advantages" placeholder="Достоинства"></label>
+          <label><input type="text" id="disadvantage" name="disadvantages" placeholder="Недостатки"></label>
         </div>
         <div class="pop-up__group">
           <p>Оцените товар:
@@ -306,7 +311,7 @@
               <use xlink:href="img/sprite_auto.svg#icon-star"></use>
             </svg>
           </p>
-          <textarea placeholder="* Комментарий" name="comment" required></textarea>
+          <textarea placeholder="* Комментарий" id="comment" name="comment" required></textarea>
         </div>
         <button class="pop-up__button" form="form" type="submit">Оставить отзыв</button>
       </form>
