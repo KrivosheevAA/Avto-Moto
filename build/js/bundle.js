@@ -210,14 +210,13 @@ window.addEventListener('click', function (event) {
 var nameAvtor = document.querySelector('.reviews__avtor');
 var dignityAvtor = document.querySelector('.reviews__item--dignity');
 var disadvantageAvtor = document.querySelector('.reviews__item--disadvantage');
-var commentAvtor = document.querySelector('.reviews__comment--avtor');
+var commentAvtor = document.querySelector('.reviews__item--comment');
 var form = document.querySelector('.pop-up__form');
 var nameInput = form.querySelector('#name');
 var dignityInput = form.querySelector('#advantages');
 var disadvantageInput = form.querySelector('#disadvantage');
 var commentInput = form.querySelector('#comment');
-var buttonSubmit = document.querySelector('.pop-up__button'); //form.elements[0] - name
-
+var buttonSubmit = document.querySelector('.pop-up__button');
 buttonSubmit.addEventListener('click', function () {
   nameAvtor.textContent = nameInput.value;
   dignityAvtor.textContent = dignityInput.value;

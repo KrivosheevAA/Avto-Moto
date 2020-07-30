@@ -124,7 +124,7 @@ window.addEventListener('click', function (event) {
 let nameAvtor = document.querySelector('.reviews__avtor');
 let dignityAvtor = document.querySelector('.reviews__item--dignity');
 let disadvantageAvtor = document.querySelector('.reviews__item--disadvantage');
-let commentAvtor = document.querySelector('.reviews__comment--avtor');
+let commentAvtor = document.querySelector('.reviews__item--comment');
 let form = document.querySelector('.pop-up__form');
 let nameInput = form.querySelector('#name');
 let dignityInput = form.querySelector('#advantages');
@@ -132,8 +132,6 @@ let disadvantageInput = form.querySelector('#disadvantage');
 let commentInput = form.querySelector('#comment');
 let buttonSubmit = document.querySelector('.pop-up__button');
 
-
-//form.elements[0] - name
 
 buttonSubmit.addEventListener('click', function () {
   nameAvtor.textContent = nameInput.value;
