@@ -307,13 +307,13 @@
         <span class="visually-hidden">Закрыть</span>
       </button>
       <h2 class="pop-up__title">Оставить отзыв</h2>
-      <form class="pop-up__form" id="form" action="index.html" method="GET" enctype="multipart/form-data">
-        <div class="pop-up__group">
-          <label><input type="text" id="name" name="name" placeholder="Имя" required=""></label>
-          <label><input type="text" id="advantages" name="advantages" placeholder="Достоинства"></label>
-          <label><input type="text" id="disadvantage" name="disadvantages" placeholder="Недостатки"></label>
+      <form class="pop-up__form form" id="reviews-form" action="index.html" method="GET" enctype="multipart/form-data">
+        <div class="form__group">
+          <label class="form__label form__label--required"><input type="text" id="name" name="name" placeholder="Имя" required=""></label>
+          <label class="form__label"><input type="text" id="advantages" name="advantages" placeholder="Достоинства"></label>
+          <label class="form__label"><input type="text" id="disadvantage" name="disadvantages" placeholder="Недостатки"></label>
         </div>
-        <div class="pop-up__group">
+        <div class="form__group">
           <p>Оцените товар:
             <svg width="27" height="27">
               <use xlink:href="img/sprite_auto.svg#icon-star"></use>
@@ -331,9 +331,9 @@
               <use xlink:href="img/sprite_auto.svg#icon-star"></use>
             </svg>
           </p>
-          <textarea placeholder="* Комментарий" id="comment" name="comment" required=""></textarea>
+          <label class="form__label form__label--required"><textarea placeholder="Комментарий" id="comment" name="comment" required=""></textarea></label>
         </div>
-        <button class="pop-up__button" form="form" type="submit">Оставить отзыв</button>
+        <p class="form__button"><button type="submit">Оставить отзыв</button></p>
       </form>
     </div>
   </section>
