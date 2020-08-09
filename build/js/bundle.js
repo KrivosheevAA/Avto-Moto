@@ -187,7 +187,7 @@ var modal = function modal() {
     if (json) {
       var fields = form.querySelectorAll('input, textarea');
       fields.forEach(function (el) {
-        el.value = json[el.id];
+        el.value = json[el.id] ? json[el.id] : '';
       });
     }
   }
@@ -225,35 +225,50 @@ var modal = function modal() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var reviews = function reviews() {
-  var nameAvtor = document.querySelector('.reviews__avtor');
-  var dignityAvtor = document.querySelector('.reviews__item--dignity');
-  var disadvantageAvtor = document.querySelector('.reviews__item--disadvantage');
-  var commentAvtor = document.querySelector('.reviews__item--comment');
   var form = document.querySelector('.pop-up__form');
-  var nameInput = form.querySelector('#name');
-  var dignityInput = form.querySelector('#advantages');
-  var disadvantageInput = form.querySelector('#disadvantage');
-  var commentInput = form.querySelector('#comment');
   var buttonSubmit = document.querySelector('.pop-up__button');
-  var cacheFields = {}; // [...form.elements].forEach(element => {
+  var cacheFields = {};
+  var reviewsContainer = document.querySelector('.reviews__container');
+  var reviewsArr = []; // [...form.elements].forEach(element => {
   //   if (element.tagName !== 'BUTTON') {
   //     element.addEventListener('change', e => {
   //     })
   //   }
   // })
 
-  form.addEventListener('submit', function () {});
+  var renderReview = function renderReview(review) {
+    return "\n    <div class=\"reviews__review\">\n      <h2 class=\"reviews__avtor\">".concat(review.name, "</h2>\n        <ul class=\"reviews__list\">\n          <li class=\"reviews__item\"><span>+</span>\u0414\u043E\u0441\u0442\u043E\u0438\u043D\u0441\u0442\u0432\u0430\n            <p class=\"reviews__item reviews__item--dignity\">").concat(review.advantages, "</p>\n          </li>\n          <li class=\"reviews__item\"><span>-</span>\u041D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043A\u0438\n            <p class=\"reviews__item reviews__item--disadvantage\">").concat(review.disadvantage, "</p>\n          </li>\n          <li class=\"reviews__item\">\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439\n            <p class=\"reviews__item reviews__item--comment\">").concat(review.comment, "</p>\n          </li>\n        </ul>\n        <div class=\"reviews__star\">\n          <svg width=\"16\" height=\"17\">\n              <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <svg width=\"16\" height=\"17\">\n            <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <svg width=\"16\" height=\"17\">\n            <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <svg width=\"16\" height=\"17\">\n            <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <svg width=\"16\" height=\"17\">\n            <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <span>\u0421\u043E\u0432\u0435\u0442\u0443\u044E\u0442</span>\n        </div>\n        <div class=\"reviews__time\">\n          <p>1 \u043C\u0438\u043D\u0443\u0442\u0443 \u043D\u0430\u0437\u0430\u0434</p>\n          <span>\u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C</span>\n        </div>\n      </div>\n    ");
+  };
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var formData = {};
+
+    _toConsumableArray(this.elements).forEach(function (item) {
+      if (item.tagName !== 'BUTTON') {
+        formData[item.id] = item.value;
+      }
+    });
+
+    this.reset();
+    reviewsArr.push(renderReview(formData));
+    reviewsContainer.innerHTML = reviewsArr.join('');
+  });
   form.addEventListener('change', function (e) {
     if (e.target.tagName !== 'BUTTON') {
-      // let fields = [...form.querySelectorAll('input, textarea')];
-      //       let json = JSON.stringify(fields.map(e => [e.name, e.value]));
-      //       localStorage.setItem(form.id, json);
-      //   document.addEventListener("DOMContentLoaded", () => {
-      //       let values = JSON.parse(localStorage.getItem(form.id));
-      //       for (let i = 0; i < values.length; i++)
-      //           form[values[i][0]].value = values[i][1];
-      //   });
       cacheFields[e.target.id] = e.target.value;
       var json = JSON.stringify(cacheFields);
       localStorage.setItem(form.id, json);

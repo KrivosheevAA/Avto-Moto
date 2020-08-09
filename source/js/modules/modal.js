@@ -15,7 +15,7 @@ const modal = () => {
       if (json) {
         const fields = form.querySelectorAll('input, textarea');
         fields.forEach(el => {
-          el.value = json[el.id];
+          el.value = json[el.id] ? json[el.id] : '';
       })
     }
   }

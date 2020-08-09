@@ -1,8 +1,12 @@
 .reviews {
-  display: flex;
   padding-top: 30px;
-  justify-content: space-between;
-  align-items: baseline;
+  position: relative;
+}
+
+.reviews__review {
+  border-bottom: 1px solid red;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 .reviews__avtor {
@@ -53,6 +57,9 @@
 }
 
 .reviews__button {
+  position: absolute;
+  top: 30px;
+  right: 0;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

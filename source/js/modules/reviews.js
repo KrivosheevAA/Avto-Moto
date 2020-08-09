@@ -1,15 +1,9 @@
 const reviews = () => {
-  const nameAvtor = document.querySelector('.reviews__avtor');
-  const dignityAvtor = document.querySelector('.reviews__item--dignity');
-  const disadvantageAvtor = document.querySelector('.reviews__item--disadvantage');
-  const commentAvtor = document.querySelector('.reviews__item--comment');
   const form = document.querySelector('.pop-up__form');
-  const nameInput = form.querySelector('#name');
-  const dignityInput = form.querySelector('#advantages');
-  const disadvantageInput = form.querySelector('#disadvantage');
-  const commentInput = form.querySelector('#comment');
   const buttonSubmit = document.querySelector('.pop-up__button');
   const cacheFields = {};
+  const reviewsContainer = document.querySelector('.reviews__container');
+  const reviewsArr = [];
 
   // [...form.elements].forEach(element => {
   //   if (element.tagName !== 'BUTTON') {
@@ -18,23 +12,63 @@ const reviews = () => {
   //     })
   //   }
   // })
+ const renderReview = review => {
+  return `
+    <div class="reviews__review">
+      <h2 class="reviews__avtor">${review.name}</h2>
+        <ul class="reviews__list">
+          <li class="reviews__item"><span>+</span>Достоинства
+            <p class="reviews__item reviews__item--dignity">${review.advantages}</p>
+          </li>
+          <li class="reviews__item"><span>-</span>Недостатки
+            <p class="reviews__item reviews__item--disadvantage">${review.disadvantage}</p>
+          </li>
+          <li class="reviews__item">Комментарий
+            <p class="reviews__item reviews__item--comment">${review.comment}</p>
+          </li>
+        </ul>
+        <div class="reviews__star">
+          <svg width="16" height="17">
+              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+          </svg>
+          <svg width="16" height="17">
+            <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+          </svg>
+          <svg width="16" height="17">
+            <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+          </svg>
+          <svg width="16" height="17">
+            <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+          </svg>
+          <svg width="16" height="17">
+            <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+          </svg>
+          <span>Советуют</span>
+        </div>
+        <div class="reviews__time">
+          <p>1 минуту назад</p>
+          <span>Ответить</span>
+        </div>
+      </div>
+    `
+ }
 
 
-
-  form.addEventListener('submit', function () {
-
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = {};
+    [...this.elements].forEach(item => {
+      if (item.tagName !== 'BUTTON') {
+        formData[item.id] = item.value;
+      }
+    })
+    this.reset();
+    reviewsArr.push(renderReview(formData));
+    reviewsContainer.innerHTML = reviewsArr.join('');
   })
 
   form.addEventListener('change', function (e) {
     if (e.target.tagName !== 'BUTTON') {
-      // let fields = [...form.querySelectorAll('input, textarea')];
-      //       let json = JSON.stringify(fields.map(e => [e.name, e.value]));
-      //       localStorage.setItem(form.id, json);
-      //   document.addEventListener("DOMContentLoaded", () => {
-      //       let values = JSON.parse(localStorage.getItem(form.id));
-      //       for (let i = 0; i < values.length; i++)
-      //           form[values[i][0]].value = values[i][1];
-      //   });
       cacheFields[e.target.id] = e.target.value;
       let json = JSON.stringify(cacheFields);
       localStorage.setItem(form.id, json);
