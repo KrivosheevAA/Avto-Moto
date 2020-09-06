@@ -103,11 +103,9 @@
     font-size: 15px;
     color: $color-black;
     margin: 0;
-    margin-bottom: 33px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 6px;
   }
 
   textarea {
@@ -121,6 +119,41 @@
     resize: none;
   }
 }
+
+.form__iner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 33px;
+}
+
+.form__wraper {
+  position: relative;
+}
+
+.form__star {
+  display: flex;
+
+  svg {
+    margin-left: 8px;
+    fill: $color-star;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+}
+
+.form__star--fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 0%;
+  pointer-events: none;
+
+  svg {
+    fill: $color-red;
+  }
+}
+
 .form__button {
   display: flex;
   justify-content: center;

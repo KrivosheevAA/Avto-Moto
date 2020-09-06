@@ -73,7 +73,7 @@
   background-color: $color-white;
 }
 
-.reviews__star {
+.reviews__raiting {
   display: flex;
   margin-bottom: 30px;
 
@@ -84,6 +84,30 @@
     line-height: 20px;
     color: $color-red;
     padding-left: 27px;
+  }
+}
+
+.reviews__wraper {
+  position: relative;
+}
+
+.reviews__star {
+  display: flex;
+
+  svg {
+    fill: $color-star;
+    flex-shrink: 0;
+  }
+}
+
+.reviews__star--fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  svg {
+    fill: $color-red;
   }
 }
 

@@ -100,6 +100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/map */ "./modules/map.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ "./modules/modal.js");
 /* harmony import */ var _modules_reviews__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/reviews */ "./modules/reviews.js");
+/* harmony import */ var _modules_rating__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/rating */ "./modules/rating.js");
+
 
 
 
@@ -113,6 +115,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_map__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_modal__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_modules_reviews__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_modules_rating__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
 
 /***/ }),
@@ -222,6 +225,7 @@ var modal = function modal() {
   var buttonClose = document.querySelector('.pop-up__close');
   var nameInput = document.querySelector('#name');
   var form = document.querySelector('.pop-up__form');
+  var raiting = document.querySelector('[data-raiting-fill]');
   rewiewsButton.addEventListener('click', openPopUp);
 
   function openPopUp() {
@@ -231,6 +235,7 @@ var modal = function modal() {
 
     if (json) {
       var fields = form.querySelectorAll('input, textarea');
+      raiting.style.width = "".concat(json.raiting, "%");
       fields.forEach(function (el) {
         el.value = json[el.id] ? json[el.id] : '';
       });
@@ -261,6 +266,56 @@ var modal = function modal() {
 
 /***/ }),
 
+/***/ "./modules/rating.js":
+/*!***************************!*\
+  !*** ./modules/rating.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+
+var raiting = function raiting() {
+  var raitingControl = document.querySelector('[data-raiting-control]');
+  var raitingFill = document.querySelector('[data-raiting-fill]');
+  var isMove = false;
+  var percent = 0;
+  var raitingInput = document.querySelector('[name="raiting-value"]');
+  raitingControl.addEventListener('mousemove', function (e) {
+    if (isMove) {
+      var rect = e.target.getBoundingClientRect();
+      var elWidth = e.target.getBoundingClientRect().width;
+      var currentPosition = e.pageX - rect.left;
+      percent = Math.round(currentPosition * 100 / elWidth);
+      raitingFill.style.width = "".concat(percent, "%");
+    }
+  });
+  raitingControl.addEventListener('mouseenter', function () {
+    isMove = true;
+    raitingFill.style.width = "0%";
+  });
+  raitingControl.addEventListener('mouseleave', function () {
+    isMove = false;
+  });
+  raitingControl.addEventListener('click', function () {
+    raitingInput.value = percent;
+    isMove = false;
+
+    if (localStorage.getItem('reviews-form')) {
+      var json = JSON.parse(localStorage.getItem('reviews-form'));
+      json[raitingInput.id] = percent;
+      localStorage.setItem('reviews-form', JSON.stringify(json));
+      console.log(json);
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (raiting);
+
+/***/ }),
+
 /***/ "./modules/reviews.js":
 /*!****************************!*\
   !*** ./modules/reviews.js ***!
@@ -282,20 +337,25 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+// import monent from 'moment';
+// import 'moment/locale/ru';
 var reviews = function reviews() {
+  // moment.locale('ru');
   var form = document.querySelector('.pop-up__form');
   var buttonSubmit = document.querySelector('.pop-up__button');
   var cacheFields = {};
   var reviewsContainer = document.querySelector('.reviews__container');
-  var reviewsArr = []; // [...form.elements].forEach(element => {
-  //   if (element.tagName !== 'BUTTON') {
-  //     element.addEventListener('change', e => {
-  //     })
-  //   }
-  // })
+  var raitingFill = document.querySelector('[data-raiting-fill]');
+
+  var renderReviewWrapper = function renderReviewWrapper(review) {
+    var wrapper = document.createElement('div');
+    wrapper.classList.add('reviews__review');
+    wrapper.innerHTML = review;
+    return wrapper;
+  };
 
   var renderReview = function renderReview(review) {
-    return "\n    <div class=\"reviews__review\">\n      <h2 class=\"reviews__avtor\">".concat(review.name, "</h2>\n        <ul class=\"reviews__list\">\n          <li class=\"reviews__item\"><span>+</span>\u0414\u043E\u0441\u0442\u043E\u0438\u043D\u0441\u0442\u0432\u0430\n            <p class=\"reviews__item reviews__item--dignity\">").concat(review.advantages, "</p>\n          </li>\n          <li class=\"reviews__item\"><span>-</span>\u041D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043A\u0438\n            <p class=\"reviews__item reviews__item--disadvantage\">").concat(review.disadvantage, "</p>\n          </li>\n          <li class=\"reviews__item\">\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439\n            <p class=\"reviews__item reviews__item--comment\">").concat(review.comment, "</p>\n          </li>\n        </ul>\n        <div class=\"reviews__star\">\n          <svg width=\"16\" height=\"17\">\n              <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <svg width=\"16\" height=\"17\">\n            <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <svg width=\"16\" height=\"17\">\n            <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <svg width=\"16\" height=\"17\">\n            <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <svg width=\"16\" height=\"17\">\n            <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n          </svg>\n          <span>\u0421\u043E\u0432\u0435\u0442\u0443\u044E\u0442</span>\n        </div>\n        <div class=\"reviews__time\">\n          <p>1 \u043C\u0438\u043D\u0443\u0442\u0443 \u043D\u0430\u0437\u0430\u0434</p>\n          <span>\u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C</span>\n        </div>\n      </div>\n    ");
+    return "\n      <h2 class=\"reviews__avtor\">".concat(review.name, "</h2>\n        <ul class=\"reviews__list\">\n          <li class=\"reviews__item\"><span>+</span>\u0414\u043E\u0441\u0442\u043E\u0438\u043D\u0441\u0442\u0432\u0430\n            <p class=\"reviews__item reviews__item--dignity\">").concat(review.advantages, "</p>\n          </li>\n          <li class=\"reviews__item\"><span>-</span>\u041D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043A\u0438\n            <p class=\"reviews__item reviews__item--disadvantage\">").concat(review.disadvantage, "</p>\n          </li>\n          <li class=\"reviews__item\">\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439\n            <p class=\"reviews__item reviews__item--comment\">").concat(review.comment, "</p>\n          </li>\n        </ul>\n          <div class=\"reviews__raiting\">\n            <div class=\"reviews__wraper\">\n              <div class=\"reviews__star\">\n                <svg width=\"16\" height=\"17\">\n                    <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n              </div>\n              <div class=\"reviews__star reviews__star--fill\" style=\"width: ").concat(review.raiting, "%;\">\n                <svg width=\"16\" height=\"17\">\n                    <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n              </div>\n            </div>\n            <span>\u0421\u043E\u0432\u0435\u0442\u0443\u044E\u0442</span>\n          </div>\n        <div class=\"reviews__time\">\n          <p>").concat(moment().locale(), "</p>\n          <span>\u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C</span>\n        </div>\n    ");
   };
 
   form.addEventListener('submit', function (e) {
@@ -303,16 +363,18 @@ var reviews = function reviews() {
     var formData = {};
 
     _toConsumableArray(this.elements).forEach(function (item) {
+      console.log(item);
+
       if (item.tagName !== 'BUTTON') {
         formData[item.id] = item.value;
       }
     });
 
     this.reset();
-    reviewsArr.push(renderReview(formData));
-    reviewsContainer.innerHTML = reviewsArr.join('');
+    raitingFill.style.width = '0%';
+    reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
   });
-  form.addEventListener('change', function (e) {
+  form.addEventListener('input', function (e) {
     if (e.target.tagName !== 'BUTTON') {
       cacheFields[e.target.id] = e.target.value;
       var json = JSON.stringify(cacheFields);

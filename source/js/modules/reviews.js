@@ -1,20 +1,24 @@
+// import monent from 'moment';
+// import 'moment/locale/ru';
+
 const reviews = () => {
+  // moment.locale('ru');
   const form = document.querySelector('.pop-up__form');
   const buttonSubmit = document.querySelector('.pop-up__button');
   const cacheFields = {};
   const reviewsContainer = document.querySelector('.reviews__container');
-  const reviewsArr = [];
+  const raitingFill = document.querySelector('[data-raiting-fill]');
 
-  // [...form.elements].forEach(element => {
-  //   if (element.tagName !== 'BUTTON') {
-  //     element.addEventListener('change', e => {
+const renderReviewWrapper = review => {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('reviews__review');
+  wrapper.innerHTML = review;
+  return wrapper;
+}
 
-  //     })
-  //   }
-  // })
+
  const renderReview = review => {
   return `
-    <div class="reviews__review">
       <h2 class="reviews__avtor">${review.name}</h2>
         <ul class="reviews__list">
           <li class="reviews__item"><span>+</span>Достоинства
@@ -27,47 +31,70 @@ const reviews = () => {
             <p class="reviews__item reviews__item--comment">${review.comment}</p>
           </li>
         </ul>
-        <div class="reviews__star">
-          <svg width="16" height="17">
-              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-          </svg>
-          <svg width="16" height="17">
-            <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-          </svg>
-          <svg width="16" height="17">
-            <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-          </svg>
-          <svg width="16" height="17">
-            <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-          </svg>
-          <svg width="16" height="17">
-            <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-          </svg>
-          <span>Советуют</span>
-        </div>
+          <div class="reviews__raiting">
+            <div class="reviews__wraper">
+              <div class="reviews__star">
+                <svg width="16" height="17">
+                    <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+                <svg width="16" height="17">
+                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+                <svg width="16" height="17">
+                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+                <svg width="16" height="17">
+                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+                <svg width="16" height="17">
+                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+              </div>
+              <div class="reviews__star reviews__star--fill" style="width: ${review.raiting}%;">
+                <svg width="16" height="17">
+                    <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+                <svg width="16" height="17">
+                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+                <svg width="16" height="17">
+                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+                <svg width="16" height="17">
+                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+                <svg width="16" height="17">
+                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                </svg>
+              </div>
+            </div>
+            <span>Советуют</span>
+          </div>
         <div class="reviews__time">
-          <p>1 минуту назад</p>
+          <p>${moment().locale()}</p>
           <span>Ответить</span>
         </div>
-      </div>
     `
  }
+
 
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = {};
     [...this.elements].forEach(item => {
+        console.log(item);
       if (item.tagName !== 'BUTTON') {
         formData[item.id] = item.value;
       }
     })
     this.reset();
-    reviewsArr.push(renderReview(formData));
-    reviewsContainer.innerHTML = reviewsArr.join('');
+    raitingFill.style.width = '0%';
+    reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
+
   })
 
-  form.addEventListener('change', function (e) {
+  form.addEventListener('input', function (e) {
     if (e.target.tagName !== 'BUTTON') {
       cacheFields[e.target.id] = e.target.value;
       let json = JSON.stringify(cacheFields);

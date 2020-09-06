@@ -4,6 +4,7 @@ const modal = () => {
   const buttonClose = document.querySelector('.pop-up__close');
   const nameInput = document.querySelector('#name');
   const form = document.querySelector('.pop-up__form');
+  const raiting = document.querySelector('[data-raiting-fill]');
 
   rewiewsButton.addEventListener('click', openPopUp);
 
@@ -14,6 +15,7 @@ const modal = () => {
     let json = JSON.parse(localStorage.getItem(form.id));
       if (json) {
         const fields = form.querySelectorAll('input, textarea');
+        raiting.style.width = `${json.raiting}%`;
         fields.forEach(el => {
           el.value = json[el.id] ? json[el.id] : '';
       })
