@@ -1,4 +1,6 @@
-const modal = () => {
+'use strict';
+
+(() => {
   const rewiewsButton = document.querySelector('.reviews__button');
   const popUpForm = document.querySelector('.pop-up');
   const buttonClose = document.querySelector('.pop-up__close');
@@ -41,5 +43,5 @@ const modal = () => {
       popUpForm.classList.remove('pop-up__show');
     }
   });
-}
-export default modal;
+})();
+

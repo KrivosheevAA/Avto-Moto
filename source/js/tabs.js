@@ -1,4 +1,6 @@
-const tabs = () => {
+'use strict';
+
+(() => {
   const buttonTabs = document.querySelector('.tabs__control-list');
   const tabsContentItem = document.querySelectorAll('.tabs__content-item');
   const buttonActive = document.querySelectorAll('.tabs__control-item');
@@ -21,5 +23,4 @@ const tabs = () => {
       }
     }
   }
-}
-export default tabs;
+})();

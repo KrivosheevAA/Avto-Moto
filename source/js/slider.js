@@ -1,4 +1,6 @@
-const slider = () => {
+'use strict';
+
+(() => {
   let counter = 0;
   const prevButton = document.querySelector('.slider__button--prev');
   const nextButton = document.querySelector('.slider__button--next');
@@ -25,6 +27,5 @@ const slider = () => {
     prevButton.disabled = false;
     containerSlide.style.transform = `translateX(${-600 * counter}px)`;
   });
-}
+})();
 
-export default slider;

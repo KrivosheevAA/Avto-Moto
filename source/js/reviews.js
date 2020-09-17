@@ -1,8 +1,5 @@
-// import monent from 'moment';
-// import 'moment/locale/ru';
-
-const reviews = () => {
-  // moment.locale('ru');
+'use strict';
+(() => {
   const form = document.querySelector('.pop-up__form');
   const buttonSubmit = document.querySelector('.pop-up__button');
   const cacheFields = {};
@@ -71,7 +68,7 @@ const renderReviewWrapper = review => {
             <span>Советуют</span>
           </div>
         <div class="reviews__time">
-          <p>${moment().locale()}</p>
+          <p>${moment().locale('ru').fromNow()}</p>
           <span>Ответить</span>
         </div>
     `
@@ -83,12 +80,12 @@ const renderReviewWrapper = review => {
     e.preventDefault();
     const formData = {};
     [...this.elements].forEach(item => {
-        console.log(item);
       if (item.tagName !== 'BUTTON') {
         formData[item.id] = item.value;
       }
     })
     this.reset();
+    localStorage.removeItem(form.id);
     raitingFill.style.width = '0%';
     reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
 
@@ -101,5 +98,4 @@ const renderReviewWrapper = review => {
       localStorage.setItem(form.id, json);
     }
   });
-}
-export default reviews;
+})();

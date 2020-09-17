@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const raiting = () => {
+(() => {
   const raitingControl = document.querySelector('[data-raiting-control]');
   const raitingFill = document.querySelector('[data-raiting-fill]');
   let isMove = false;
@@ -34,9 +34,6 @@ const raiting = () => {
       let json = JSON.parse(localStorage.getItem('reviews-form'));
       json[raitingInput.id] = percent;
       localStorage.setItem('reviews-form', JSON.stringify(json));
-      console.log(json);
     }
   })
-}
-
-export default raiting;
+})();
