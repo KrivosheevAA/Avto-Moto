@@ -94,7 +94,21 @@ gulp.task("html", function () {
 
 gulp.task("js", function () {
   return gulp.src("source/js/*.js")
-  .pipe(babel({presets: ['@babel/env']}))
+  .pipe(babel({"presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 version",
+              "> 1%",
+              "ie 10",
+              "safari >= 7"
+            ]
+          }
+        }
+      ]
+    ]}))
   .pipe(concat("script.js"))
   .pipe(gulp.dest("build/js"))
 });

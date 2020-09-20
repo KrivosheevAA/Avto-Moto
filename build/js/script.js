@@ -62,12 +62,13 @@
   function openPopUp() {
     popUpForm.classList.add('pop-up__show');
     nameInput.focus();
+    form.addEventListener('submit', window.reviews.onFormSubmit);
     var json = JSON.parse(localStorage.getItem(form.id));
 
     if (json) {
-      var fields = form.querySelectorAll('input, textarea');
+      var fields = [].slice.call(form.querySelectorAll('input, textarea'));
       raiting.style.width = "".concat(json.raiting, "%");
-      fields.forEach(function (el) {
+      Array.prototype.forEach.call(form.querySelectorAll('input, textarea'), function (el) {
         el.value = json[el.id] ? json[el.id] : '';
       });
     }
@@ -76,6 +77,7 @@
   buttonClose.addEventListener('click', function () {
     event.preventDefault();
     popUpForm.classList.remove('pop-up__show');
+    form.removeEventListener('submit', window.reviews.onFormSubmit);
   });
   window.addEventListener('keydown', function (event) {
     if (event.keyCode === 27) {
@@ -165,7 +167,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return "\n      <h2 class=\"reviews__avtor\">".concat(review.name, "</h2>\n        <ul class=\"reviews__list\">\n          <li class=\"reviews__item\"><span>+</span>\u0414\u043E\u0441\u0442\u043E\u0438\u043D\u0441\u0442\u0432\u0430\n            <p class=\"reviews__item reviews__item--dignity\">").concat(review.advantages, "</p>\n          </li>\n          <li class=\"reviews__item\"><span>-</span>\u041D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043A\u0438\n            <p class=\"reviews__item reviews__item--disadvantage\">").concat(review.disadvantage, "</p>\n          </li>\n          <li class=\"reviews__item\">\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439\n            <p class=\"reviews__item reviews__item--comment\">").concat(review.comment, "</p>\n          </li>\n        </ul>\n          <div class=\"reviews__raiting\">\n            <div class=\"reviews__wraper\">\n              <div class=\"reviews__star\">\n                <svg width=\"16\" height=\"17\">\n                    <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n              </div>\n              <div class=\"reviews__star reviews__star--fill\" style=\"width: ").concat(review.raiting, "%;\">\n                <svg width=\"16\" height=\"17\">\n                    <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n                <svg width=\"16\" height=\"17\">\n                  <use xlink:href=\"img/sprite_auto.svg#icon-star\"></use>\n                </svg>\n              </div>\n            </div>\n            <span>\u0421\u043E\u0432\u0435\u0442\u0443\u044E\u0442</span>\n          </div>\n        <div class=\"reviews__time\">\n          <p>").concat(moment().locale('ru').fromNow(), "</p>\n          <span>\u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C</span>\n        </div>\n    ");
   };
 
-  form.addEventListener('submit', function (e) {
+  var onFormSubmit = function onFormSubmit(e) {
     e.preventDefault();
     var formData = {};
 
@@ -179,7 +181,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     localStorage.removeItem(form.id);
     raitingFill.style.width = '0%';
     reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
-  });
+  };
+
   form.addEventListener('input', function (e) {
     if (e.target.tagName !== 'BUTTON') {
       cacheFields[e.target.id] = e.target.value;
@@ -187,6 +190,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       localStorage.setItem(form.id, json);
     }
   });
+  window.reviews = {
+    onFormSubmit: onFormSubmit
+  };
 })();
 'use strict';
 

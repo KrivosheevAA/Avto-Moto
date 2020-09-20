@@ -13,12 +13,13 @@
   function openPopUp () {
     popUpForm.classList.add('pop-up__show');
     nameInput.focus();
+    form.addEventListener('submit', window.reviews.onFormSubmit);
 
     let json = JSON.parse(localStorage.getItem(form.id));
       if (json) {
-        const fields = form.querySelectorAll('input, textarea');
+        const fields = [].slice.call(form.querySelectorAll('input, textarea'));
         raiting.style.width = `${json.raiting}%`;
-        fields.forEach(el => {
+        Array.prototype.forEach.call(form.querySelectorAll('input, textarea'), el => {
           el.value = json[el.id] ? json[el.id] : '';
       })
     }
@@ -27,6 +28,7 @@
   buttonClose.addEventListener('click', function () {
     event.preventDefault();
     popUpForm.classList.remove('pop-up__show');
+    form.removeEventListener('submit', window.reviews.onFormSubmit);
   });
 
   window.addEventListener('keydown', function (event) {

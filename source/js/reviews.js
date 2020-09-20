@@ -74,9 +74,7 @@ const renderReviewWrapper = review => {
     `
  }
 
-
-
-  form.addEventListener('submit', function (e) {
+  const onFormSubmit = function(e) {
     e.preventDefault();
     const formData = {};
     [...this.elements].forEach(item => {
@@ -88,8 +86,8 @@ const renderReviewWrapper = review => {
     localStorage.removeItem(form.id);
     raitingFill.style.width = '0%';
     reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
+  }
 
-  })
 
   form.addEventListener('input', function (e) {
     if (e.target.tagName !== 'BUTTON') {
@@ -98,4 +96,7 @@ const renderReviewWrapper = review => {
       localStorage.setItem(form.id, json);
     }
   });
+  window.reviews = {
+    onFormSubmit
+  }
 })();
