@@ -28,4 +28,3 @@
     containerSlide.style.transform = `translateX(${-600 * counter}px)`;
   });
 })();
-

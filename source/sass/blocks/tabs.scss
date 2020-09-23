@@ -10,7 +10,7 @@
 }
 
 .tabs__control-item {
-  min-width: 195px;
+  min-width: 197px;
   min-height: 50px;
   font-family: $font;
   font-style: normal;
@@ -44,14 +44,13 @@
 }
 
 .tabs__table {
-  min-width: 565px;
+  min-width: 573px;
 }
 
 
 .tabs__table-td {
   border-bottom: 1px solid $color-grey-1;
-  padding-bottom: 8px;
-  padding-top: 20px;
+  padding-top: 25px;
 }
 
 .tabs__table-td--second {

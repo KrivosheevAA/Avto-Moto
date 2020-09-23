@@ -12,8 +12,14 @@
 .page-header__logo {
   display: flex;
   align-items: center;
-  padding-left: 12px;
+  padding-left: 5px;
+  padding-top: 1px;
+
+  a {
+    pointer-events: none;
+  }
 }
+
 .page-header__logo-name {
   padding-left: 20px;
 }
@@ -24,6 +30,8 @@
   line-height: 25px;
   color: $color-dark-grey;
   margin: 0;
+  padding: 0;
+  letter-spacing: 3px;
 }
 
 .page-header__logo-name--second {
@@ -32,4 +40,6 @@
   line-height: 19px;
   color: $color-dark-grey;
   margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
 }

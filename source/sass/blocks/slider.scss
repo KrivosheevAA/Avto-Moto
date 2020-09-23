@@ -1,5 +1,6 @@
 .slider {
   width: 600px;
+  margin-top: 18px;
 }
 
 .slider__container {
@@ -46,12 +47,12 @@
 .slider__controls {
   display: flex;
   align-items: center;
-  margin-top: 39px;
+  margin-top: 33px;
 }
 
 .slider__button {
-  width: 52px;
-  height: 52px;
+  width: 51px;
+  height: 51px;
   background-color: $color-white;
   border: 1px solid $color-grey-1;
   border-radius: 30px;

@@ -6,15 +6,15 @@
   const reviewsContainer = document.querySelector('.reviews__container');
   const raitingFill = document.querySelector('[data-raiting-fill]');
 
-const renderReviewWrapper = review => {
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('reviews__review');
-  wrapper.innerHTML = review;
-  return wrapper;
-}
+  const renderReviewWrapper = review => {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('reviews__review');
+    wrapper.innerHTML = review;
+    return wrapper;
+  }
 
 
- const renderReview = review => {
+  const renderReview = review => {
   return `
       <h2 class="reviews__avtor">${review.name}</h2>
         <ul class="reviews__list">
@@ -72,7 +72,7 @@ const renderReviewWrapper = review => {
           <span>Ответить</span>
         </div>
     `
- }
+  }
 
   const onFormSubmit = function(e) {
     e.preventDefault();

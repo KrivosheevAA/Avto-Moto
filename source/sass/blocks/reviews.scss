@@ -1,12 +1,12 @@
 .reviews {
-  padding-top: 30px;
+  padding-top: 14px;
   position: relative;
 }
 
 .reviews__review {
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
   width: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 
 .reviews__avtor {
@@ -15,6 +15,7 @@
   font-size: 20px;
   line-height: 27px;
   color: $color-dark-grey;
+  margin: 16px 5px 14px;
 }
 
 .reviews__list {
@@ -32,8 +33,9 @@
 
   span {
     color: $color-red;
-    padding-right: 10px;
+    padding-right: 13px;
     font-size: 15px;
+    padding-left: 6px;
   }
 }
 
@@ -49,17 +51,17 @@
 
 .reviews__item--dignity,
 .reviews__item--disadvantage {
-  margin: 3px 0 13px 17px;
+  margin: 3px 0 15px 20px;
 }
 
 .reviews__item--comment {
-  margin: 3px 0 20px 0;
+  margin: 3px 0 22px 0;
 }
 
 .reviews__button {
   position: absolute;
   top: 30px;
-  right: 0;
+  right: 8px;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -69,13 +71,13 @@
   text-transform: uppercase;
   color: $color-red;
   border: 1px solid $color-red;
-  padding: 16px 20px;
+  padding: 16px 15px;
   background-color: $color-white;
 }
 
 .reviews__raiting {
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 26px;
 
   span {
     font-style: normal;
@@ -83,7 +85,7 @@
     font-size: 15px;
     line-height: 20px;
     color: $color-red;
-    padding-left: 27px;
+    padding-left: 46px;
   }
 }
 
@@ -108,6 +110,7 @@
 
   svg {
     fill: $color-red;
+    margin-left: 5px;
   }
 }
 
@@ -130,6 +133,6 @@
     font-size: 16px;
     line-height: 22px;
     color: $color-red;
-    padding-left: 26px;
+    padding-left: 32px;
   }
 }
