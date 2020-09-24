@@ -85,7 +85,7 @@
     font-size: 15px;
     line-height: 20px;
     color: $color-red;
-    padding-left: 46px;
+    padding-left: 24px;
   }
 }
 
@@ -99,6 +99,7 @@
   svg {
     fill: $color-star;
     flex-shrink: 0;
+    margin-left: 5px;
   }
 }
 

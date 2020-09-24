@@ -9,7 +9,6 @@
             searchControlProvider: 'yandex#search'
         }),
 
-        // Создаём макет содержимого.
         MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
             '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
         ),
@@ -18,15 +17,13 @@
             hintContent: 'Санкт-Петербург, набережная реки Карповки, дом 5',
             balloonContent: 'Санкт-Петербург, набережная реки Карповки, дом 5'
         }, {
-            // Опции.
-            // Необходимо указать данный тип макета.
+
             iconLayout: 'default#image',
-            // Своё изображение иконки метки.
+
             iconImageHref: 'img/icon-location.svg',
-            // Размеры метки.
+
             iconImageSize: [32, 40],
-            // Смещение левого верхнего угла иконки относительно
-            // её "ножки" (точки привязки).
+
             iconImageOffset: [-5, -38]
         }),
 
@@ -35,19 +32,17 @@
             balloonContent: 'А эта — новогодняя',
             iconContent: '12'
         }, {
-            // Опции.
-            // Необходимо указать данный тип макета.
+
             iconLayout: 'default#imageWithContent',
-            // Своё изображение иконки метки.
+
             iconImageHref: 'img/icon-location.svg',
-            // Размеры метки.
+
             iconImageSize: [48, 48],
-            // Смещение левого верхнего угла иконки относительно
-            // её "ножки" (точки привязки).
+
             iconImageOffset: [-24, -24],
-            // Смещение слоя с содержимым относительно слоя с картинкой.
+
             iconContentOffset: [15, 15],
-            // Макет содержимого.
+
             iconContentLayout: MyIconContentLayout
         });
 

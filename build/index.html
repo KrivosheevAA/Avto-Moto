@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta content-type="text/html" charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Слайдер AVTO-MOTO, табы и рендеринг отзывов">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <title>Слайдер AVTO-MOTO</title>
   <link rel="preload" type="font/woff2" href="fonts/OpenSans-Bold.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" type="font/woff2" href="fonts/OpenSans-Regular.woff2" as="font" crossorigin="anonymous">
@@ -66,17 +68,17 @@
                   </picture>
                 </li>
                 <li class="slider__slide">
-                   <picture>
+                    <picture>
                       <!-- 1х: 600px; 2x: 1200px -->
                       <source type="image/webp" srcset="img/desktop_slide_3.webp, img/desktop_slide_3@2x.webp 2x">
                       <!-- 1х: 600px; 2x: 1200px -->
                       <img src="img/desktop_slide_3.jpg" srcset="img/desktop_slide_3@2x.jpg 2x" alt="спидометр" width="600" height="375">
-                  </picture>
+                    </picture>
                 </li>
               </ul>
             </div>
             <div class="slider__controls">
-              <button class="slider__button slider__button--prev" type="button">
+              <button class="slider__button slider__button--prev" type="button" aria-label="previous">
                 <span>
                   <svg width="20" height="13">
                     <use xlink:href="img/sprite_auto.svg#icon-arrow"></use>
@@ -106,16 +108,16 @@
                 </li>
                 <li class="slider__thumb">
                   <button type="button">
-                     <picture>
+                      <picture>
                         <!-- 1х: 600px; 2x: 1200px -->
                         <source type="image/webp" srcset="img/desktop_slide_3.webp, img/desktop_slide_3@2x.webp 2x">
                         <!-- 1х: 600px; 2x: 1200px -->
                         <img src="img/desktop_slide_3.jpg" srcset="img/desktop_slide_3@2x.jpg 2x" alt="спидометр" width="600" height="375">
-                    </picture>
+                      </picture>
                   </button>
                 </li>
               </ul>
-              <button class="slider__button slider__button--next" type="button">
+              <button class="slider__button slider__button--next" type="button" aria-label="next">
                 <span>
                   <svg width="20" height="13">
                     <use xlink:href="img/sprite_auto.svg#icon-arrow"></use>
@@ -223,45 +225,45 @@
                           <p class="reviews__item reviews__item--comment">Взяли по трейд-ин, на выгодных условиях у дилера. Стильная внешка и крут по базовым характеристикам. Не думал, что пересяду на китайский автопром, но сейчас гоняю и понимаю, что полностью доволен.</p>
                         </li>
                       </ul>
-                       <div class="reviews__raiting">
-                        <div class="reviews__wraper">
-                          <div class="reviews__star">
-                            <svg width="16" height="17">
+                        <div class="reviews__raiting">
+                          <div class="reviews__wraper">
+                            <div class="reviews__star">
+                              <svg width="16" height="17">
+                                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                              </svg>
+                              <svg width="16" height="17">
                                 <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                            <svg width="16" height="17">
-                              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                            <svg width="16" height="17">
-                              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                            <svg width="16" height="17">
-                              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                            <svg width="16" height="17">
-                              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                          </div>
-                          <div class="reviews__star reviews__star--fill">
-                            <svg width="16" height="17">
+                              </svg>
+                              <svg width="16" height="17">
                                 <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                            <svg width="16" height="17">
-                              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                            <svg width="16" height="17">
-                              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                            <svg width="16" height="17">
-                              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
-                            <svg width="16" height="17">
-                              <use xlink:href="img/sprite_auto.svg#icon-star"></use>
-                            </svg>
+                              </svg>
+                              <svg width="16" height="17">
+                                <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                              </svg>
+                              <svg width="16" height="17">
+                                <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                              </svg>
+                            </div>
+                            <div class="reviews__star reviews__star--fill">
+                              <svg width="16" height="17">
+                                  <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                              </svg>
+                              <svg width="16" height="17">
+                                <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                              </svg>
+                              <svg width="16" height="17">
+                                <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                              </svg>
+                              <svg width="16" height="17">
+                                <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                              </svg>
+                              <svg width="16" height="17">
+                                <use xlink:href="img/sprite_auto.svg#icon-star"></use>
+                              </svg>
+                            </div>
                           </div>
+                          <span>Советуют</span>
                         </div>
-                        <span>Советуют</span>
-                      </div>
                       <div class="reviews__time">
                         <p>1 минуту назад</p>
                         <span>Ответить</span>
@@ -395,8 +397,8 @@
         </div>
         <div class="form__group">
           <div class="form__iner">
-          <p>Оцените товар:</p>
-           <div class="form__wraper">
+            <p>Оцените товар:</p>
+            <div class="form__wraper">
               <input type="text" class="visually-hidden" name="raiting-value" id="raiting">
                   <div class="form__star" data-raiting-control="">
                     <svg width="27" height="27">
@@ -432,9 +434,9 @@
                       <use xlink:href="img/sprite_auto.svg#icon-star"></use>
                     </svg>
                   </div>
-                </div>
-              </div>
-          <label class="form__label form__label--required"><textarea placeholder="Комментарий" id="comment" name="comment" required=""></textarea></label>
+            </div>
+          </div>
+        <label class="form__label form__label--required"><textarea placeholder="Комментарий" id="comment" name="comment" required=""></textarea></label>
         </div>
         <p class="form__button"><button type="submit">Оставить отзыв</button></p>
       </form>

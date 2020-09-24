@@ -8,21 +8,14 @@
     }, {
       searchControlProvider: 'yandex#search'
     }),
-        // Создаём макет содержимого.
-    MyIconContentLayout = ymaps.templateLayoutFactory.createClass('<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'),
+        MyIconContentLayout = ymaps.templateLayoutFactory.createClass('<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'),
         myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
       hintContent: 'Санкт-Петербург, набережная реки Карповки, дом 5',
       balloonContent: 'Санкт-Петербург, набережная реки Карповки, дом 5'
     }, {
-      // Опции.
-      // Необходимо указать данный тип макета.
       iconLayout: 'default#image',
-      // Своё изображение иконки метки.
       iconImageHref: 'img/icon-location.svg',
-      // Размеры метки.
       iconImageSize: [32, 40],
-      // Смещение левого верхнего угла иконки относительно
-      // её "ножки" (точки привязки).
       iconImageOffset: [-5, -38]
     }),
         myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
@@ -30,19 +23,11 @@
       balloonContent: 'А эта — новогодняя',
       iconContent: '12'
     }, {
-      // Опции.
-      // Необходимо указать данный тип макета.
       iconLayout: 'default#imageWithContent',
-      // Своё изображение иконки метки.
       iconImageHref: 'img/icon-location.svg',
-      // Размеры метки.
       iconImageSize: [48, 48],
-      // Смещение левого верхнего угла иконки относительно
-      // её "ножки" (точки привязки).
       iconImageOffset: [-24, -24],
-      // Смещение слоя с содержимым относительно слоя с картинкой.
       iconContentOffset: [15, 15],
-      // Макет содержимого.
       iconContentLayout: MyIconContentLayout
     });
     myMap.geoObjects.add(myPlacemark).add(myPlacemarkWithContent);
@@ -203,6 +188,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var bigPictureSlide = document.querySelectorAll('.slider__slide');
   var smallPictureSlide = document.querySelectorAll('.slider__thumb');
   var containerSlide = document.querySelector('.slider__slides');
+  var prevButtonArrow = document.querySelector('.slider__button--prev span svg');
+  var nextButtonArrow = document.querySelector('.slider__button--next span svg');
   prevButton.addEventListener('click', function () {
     counter--;
 
