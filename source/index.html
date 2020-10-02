@@ -22,8 +22,8 @@
           </svg>
         </a>
         <div class="page-header__logo-name">
-          <p class="page-header__logo-name page-header__logo-name--first">AVTO</p>
-          <p class="page-header__logo-name page-header__logo-name--second">MOTO</p>
+          <p class="page-header__logo-text page-header__logo-text--first">AVTO</p>
+          <p class="page-header__logo-text page-header__logo-text--second">MOTO</p>
         </div>
       </div>
       <nav class="main-nav">
@@ -358,7 +358,7 @@
     <div class="container page-footer__container">
       <div class="page-footer__menu">
         <ul class="page-footer__menu-list">
-          <li class="page-footer__menu-item">
+          <li class="page-footer__menu-item page-footer__menu-item--first">
             <a href="#">Корпоративным клиентам</a>
           </li>
           <li class="page-footer__menu-item">
@@ -392,14 +392,14 @@
       <form class="pop-up__form form" id="reviews-form" action="index.html" method="GET" enctype="multipart/form-data">
         <div class="form__group">
           <label class="form__label form__label--required"><input type="text" id="name" name="name" placeholder="Имя" required></label>
-          <label class="form__label"><input type="text" id="advantages" name="advantages" placeholder="Достоинства"></label>
-          <label class="form__label"><input type="text" id="disadvantage" name="disadvantages" placeholder="Недостатки"></label>
+          <label class="form__label"><input type="text" id="advantages" name="advantages" placeholder="Достоинства" required></label>
+          <label class="form__label"><input type="text" id="disadvantage" name="disadvantages" placeholder="Недостатки" required></label>
         </div>
         <div class="form__group">
           <div class="form__iner">
             <p>Оцените товар:</p>
             <div class="form__wraper">
-              <input type="text" class="visually-hidden" name="raiting-value" id="raiting">
+              <input type="text" class="visually-hidden" name="raiting-value" id="raiting" required>
                   <div class="form__star" data-raiting-control>
                     <svg width="27" height="27">
                         <use xlink:href="img/sprite_auto.svg#icon-star"></use>

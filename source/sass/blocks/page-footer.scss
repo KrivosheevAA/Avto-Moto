@@ -24,7 +24,7 @@
 }
 
 .page-footer__menu-item {
-  margin-left: 56px;
+  margin-left: 63px;
   flex-grow: 1;
 
   a {
@@ -33,4 +33,8 @@
     line-height: 22px;
     color: $color-dark-grey;
   }
+}
+
+.page-footer__menu-item--first {
+  margin: 0;
 }

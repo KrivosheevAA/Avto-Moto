@@ -56,6 +56,10 @@
   background-color: $color-white;
   border: 1px solid $color-grey-1;
   border-radius: 30px;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .slider__button--prev {
@@ -63,7 +67,6 @@
 
   svg {
     transform: rotate(-180deg);
-    opacity: 0.5;
   }
 }
 

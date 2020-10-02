@@ -10,6 +10,10 @@
   const prevButtonArrow = document.querySelector('.slider__button--prev span svg');
   const nextButtonArrow = document.querySelector('.slider__button--next span svg');
 
+  if (counter <= 0) {
+    prevButton.disabled = true;
+  }
+
   prevButton.addEventListener('click', function () {
     counter--;
     if (counter <= 0) {

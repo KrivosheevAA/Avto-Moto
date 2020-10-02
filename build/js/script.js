@@ -40,9 +40,48 @@
   var popUpForm = document.querySelector('.pop-up');
   var buttonClose = document.querySelector('.pop-up__close');
   var nameInput = document.querySelector('#name');
+  var advantagesInput = document.querySelector('#advantages');
+  var disadvantagesInput = document.querySelector('#disadvantage');
+  var raitingInput = document.querySelector('#raiting');
+  var commentInput = document.querySelector('#comment');
   var form = document.querySelector('.pop-up__form');
   var raiting = document.querySelector('[data-raiting-fill]');
   rewiewsButton.addEventListener('click', openPopUp);
+  nameInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      nameInput.setCustomValidity('Введите имя');
+    } else {
+      nameInput.setCustomValidity('');
+    }
+  });
+  advantagesInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      advantagesInput.setCustomValidity('Введите достоинства');
+    } else {
+      advantagesInput.setCustomValidity('');
+    }
+  });
+  disadvantagesInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      disadvantagesInput.setCustomValidity('Введите недостатки');
+    } else {
+      disadvantagesInput.setCustomValidity('');
+    }
+  });
+  raitingInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      raitingInput.setCustomValidity('Выберете количество звезд');
+    } else {
+      raitingInput.setCustomValidity('');
+    }
+  });
+  commentInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      commentInput.setCustomValidity('Введите комментарий');
+    } else {
+      commentInput.setCustomValidity('');
+    }
+  });
 
   function openPopUp() {
     popUpForm.classList.add('pop-up__show');
@@ -190,6 +229,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var containerSlide = document.querySelector('.slider__slides');
   var prevButtonArrow = document.querySelector('.slider__button--prev span svg');
   var nextButtonArrow = document.querySelector('.slider__button--next span svg');
+
+  if (counter <= 0) {
+    prevButton.disabled = true;
+  }
+
   prevButton.addEventListener('click', function () {
     counter--;
 

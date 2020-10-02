@@ -5,10 +5,56 @@
   const popUpForm = document.querySelector('.pop-up');
   const buttonClose = document.querySelector('.pop-up__close');
   const nameInput = document.querySelector('#name');
+  const advantagesInput = document.querySelector('#advantages');
+  const disadvantagesInput = document.querySelector('#disadvantage');
+  const raitingInput = document.querySelector('#raiting');
+  const commentInput = document.querySelector('#comment');
   const form = document.querySelector('.pop-up__form');
   const raiting = document.querySelector('[data-raiting-fill]');
 
   rewiewsButton.addEventListener('click', openPopUp);
+
+  nameInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      nameInput.setCustomValidity('Введите имя');
+    } else {
+      nameInput.setCustomValidity('');
+    }
+  });
+
+  advantagesInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      advantagesInput.setCustomValidity('Введите достоинства');
+    } else {
+      advantagesInput.setCustomValidity('');
+    }
+  });
+
+  disadvantagesInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      disadvantagesInput.setCustomValidity('Введите недостатки');
+    } else {
+      disadvantagesInput.setCustomValidity('');
+    }
+  });
+
+  raitingInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      raitingInput.setCustomValidity('Выберете количество звезд');
+    } else {
+      raitingInput.setCustomValidity('');
+    }
+  });
+
+  commentInput.addEventListener('invalid', function (evt) {
+    if (evt.target.value.length === 0) {
+      commentInput.setCustomValidity('Введите комментарий');
+    } else {
+      commentInput.setCustomValidity('');
+    }
+  });
+
+
 
   function openPopUp () {
     popUpForm.classList.add('pop-up__show');
