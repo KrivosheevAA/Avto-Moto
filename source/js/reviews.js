@@ -5,6 +5,8 @@
   const cacheFields = {};
   const reviewsContainer = document.querySelector('.reviews__container');
   const raitingFill = document.querySelector('[data-raiting-fill]');
+  const requiredFields = document.querySelectorAll('[data-required]');
+  let counter = 0;
 
   const renderReviewWrapper = review => {
     const wrapper = document.createElement('div');
@@ -12,7 +14,6 @@
     wrapper.innerHTML = review;
     return wrapper;
   }
-
 
   const renderReview = review => {
   return `
@@ -75,17 +76,33 @@
   }
 
   const onFormSubmit = function(e) {
+    let counter = 0;
     e.preventDefault();
+
     const formData = {};
     [...this.elements].forEach(item => {
       if (item.tagName !== 'BUTTON') {
         formData[item.id] = item.value;
+        if (item.parentNode.getAttribute('data-required')) {
+          if (!item.value) {
+            item.parentNode.classList.add('error');
+            counter++;
+          } else {
+            item.parentNode.classList.remove('error');
+            counter = 0;
+          }
+        }
       }
     })
-    this.reset();
-    localStorage.removeItem(form.id);
-    raitingFill.style.width = '0%';
-    reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
+
+    if (counter == 0) {
+      this.reset();
+      localStorage.removeItem(form.id);
+      raitingFill.style.width = '0%';
+      document.querySelector('.pop-up').classList.remove('pop-up__show');
+      document.body.removeAttribute('style');
+      reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
+    }
   }
 
 

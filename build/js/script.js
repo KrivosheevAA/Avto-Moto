@@ -47,44 +47,10 @@
   var form = document.querySelector('.pop-up__form');
   var raiting = document.querySelector('[data-raiting-fill]');
   rewiewsButton.addEventListener('click', openPopUp);
-  nameInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      nameInput.setCustomValidity('Введите имя');
-    } else {
-      nameInput.setCustomValidity('');
-    }
-  });
-  advantagesInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      advantagesInput.setCustomValidity('Введите достоинства');
-    } else {
-      advantagesInput.setCustomValidity('');
-    }
-  });
-  disadvantagesInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      disadvantagesInput.setCustomValidity('Введите недостатки');
-    } else {
-      disadvantagesInput.setCustomValidity('');
-    }
-  });
-  raitingInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      raitingInput.setCustomValidity('Выберете количество звезд');
-    } else {
-      raitingInput.setCustomValidity('');
-    }
-  });
-  commentInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      commentInput.setCustomValidity('Введите комментарий');
-    } else {
-      commentInput.setCustomValidity('');
-    }
-  });
 
   function openPopUp() {
     popUpForm.classList.add('pop-up__show');
+    document.body.style.overflowY = 'hidden';
     nameInput.focus();
     form.addEventListener('submit', window.reviews.onFormSubmit);
     var json = JSON.parse(localStorage.getItem(form.id));
@@ -101,6 +67,7 @@
   buttonClose.addEventListener('click', function () {
     event.preventDefault();
     popUpForm.classList.remove('pop-up__show');
+    document.body.removeAttribute('style');
     form.removeEventListener('submit', window.reviews.onFormSubmit);
   });
   window.addEventListener('keydown', function (event) {
@@ -109,12 +76,14 @@
 
       if (popUpForm.classList.contains("pop-up__show")) {
         popUpForm.classList.remove("pop-up__show");
+        document.body.removeAttribute('style');
       }
     }
   });
   window.addEventListener('click', function (event) {
     if (event.target == popUpForm) {
       popUpForm.classList.remove('pop-up__show');
+      document.body.removeAttribute('style');
     }
   });
 })();
@@ -179,6 +148,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var cacheFields = {};
   var reviewsContainer = document.querySelector('.reviews__container');
   var raitingFill = document.querySelector('[data-raiting-fill]');
+  var requiredFields = document.querySelectorAll('[data-required]');
+  var counter = 0;
 
   var renderReviewWrapper = function renderReviewWrapper(review) {
     var wrapper = document.createElement('div');
@@ -192,19 +163,34 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   var onFormSubmit = function onFormSubmit(e) {
+    var counter = 0;
     e.preventDefault();
     var formData = {};
 
     _toConsumableArray(this.elements).forEach(function (item) {
       if (item.tagName !== 'BUTTON') {
         formData[item.id] = item.value;
+
+        if (item.parentNode.getAttribute('data-required')) {
+          if (!item.value) {
+            item.parentNode.classList.add('error');
+            counter++;
+          } else {
+            item.parentNode.classList.remove('error');
+            counter = 0;
+          }
+        }
       }
     });
 
-    this.reset();
-    localStorage.removeItem(form.id);
-    raitingFill.style.width = '0%';
-    reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
+    if (counter == 0) {
+      this.reset();
+      localStorage.removeItem(form.id);
+      raitingFill.style.width = '0%';
+      document.querySelector('.pop-up').classList.remove('pop-up__show');
+      document.body.removeAttribute('style');
+      reviewsContainer.appendChild(renderReviewWrapper(renderReview(formData)));
+    }
   };
 
   form.addEventListener('input', function (e) {
@@ -255,6 +241,29 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     prevButton.disabled = false;
     containerSlide.style.transform = "translateX(".concat(-600 * counter, "px)");
+  });
+  [].forEach.call(smallPictureSlide, function (el, index) {
+    el.addEventListener('click', function () {
+      counter = index;
+      containerSlide.style.transform = "translateX(".concat(-600 * counter, "px)");
+
+      if (counter <= 0) {
+        prevButton.disabled = true;
+        nextButton.disabled = false;
+      }
+
+      if (counter > 0 && counter < bigPictureSlide.length - 1) {
+        prevButton.disabled = false;
+        nextButton.disabled = false;
+      }
+
+      if (counter >= bigPictureSlide.length - 1) {
+        nextButton.disabled = true;
+        prevButton.disabled = false;
+      }
+
+      console.log(counter);
+    });
   });
 })();
 'use strict';

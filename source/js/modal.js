@@ -14,50 +14,9 @@
 
   rewiewsButton.addEventListener('click', openPopUp);
 
-  nameInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      nameInput.setCustomValidity('Введите имя');
-    } else {
-      nameInput.setCustomValidity('');
-    }
-  });
-
-  advantagesInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      advantagesInput.setCustomValidity('Введите достоинства');
-    } else {
-      advantagesInput.setCustomValidity('');
-    }
-  });
-
-  disadvantagesInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      disadvantagesInput.setCustomValidity('Введите недостатки');
-    } else {
-      disadvantagesInput.setCustomValidity('');
-    }
-  });
-
-  raitingInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      raitingInput.setCustomValidity('Выберете количество звезд');
-    } else {
-      raitingInput.setCustomValidity('');
-    }
-  });
-
-  commentInput.addEventListener('invalid', function (evt) {
-    if (evt.target.value.length === 0) {
-      commentInput.setCustomValidity('Введите комментарий');
-    } else {
-      commentInput.setCustomValidity('');
-    }
-  });
-
-
-
   function openPopUp () {
     popUpForm.classList.add('pop-up__show');
+    document.body.style.overflowY = 'hidden';
     nameInput.focus();
     form.addEventListener('submit', window.reviews.onFormSubmit);
 
@@ -74,6 +33,7 @@
   buttonClose.addEventListener('click', function () {
     event.preventDefault();
     popUpForm.classList.remove('pop-up__show');
+    document.body.removeAttribute('style');
     form.removeEventListener('submit', window.reviews.onFormSubmit);
   });
 
@@ -82,6 +42,7 @@
       event.preventDefault();
       if (popUpForm.classList.contains("pop-up__show")) {
         popUpForm.classList.remove("pop-up__show");
+        document.body.removeAttribute('style');
       }
     }
   });
@@ -89,6 +50,7 @@
   window.addEventListener('click', function (event) {
     if (event.target == popUpForm) {
       popUpForm.classList.remove('pop-up__show');
+      document.body.removeAttribute('style');
     }
   });
 })();

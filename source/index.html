@@ -391,15 +391,15 @@
       <h2 class="pop-up__title">Оставить отзыв</h2>
       <form class="pop-up__form form" id="reviews-form" action="index.html" method="GET" enctype="multipart/form-data">
         <div class="form__group">
-          <label class="form__label form__label--required"><input type="text" id="name" name="name" placeholder="Имя" required></label>
-          <label class="form__label"><input type="text" id="advantages" name="advantages" placeholder="Достоинства" required></label>
-          <label class="form__label"><input type="text" id="disadvantage" name="disadvantages" placeholder="Недостатки" required></label>
+          <label class="form__label form__label--required" data-required="true"><span class="form__error">Пожалуйста, заполните поле</span><input type="text" id="name" name="name" placeholder="Имя"></label>
+          <label class="form__label"><input type="text" id="advantages" name="advantages" placeholder="Достоинства"></label>
+          <label class="form__label"><input type="text" id="disadvantage" name="disadvantages" placeholder="Недостатки"></label>
         </div>
         <div class="form__group">
           <div class="form__iner">
             <p>Оцените товар:</p>
             <div class="form__wraper">
-              <input type="text" class="visually-hidden" name="raiting-value" id="raiting" required>
+              <input type="text" class="visually-hidden" name="raiting-value" id="raiting" value="0">
                   <div class="form__star" data-raiting-control>
                     <svg width="27" height="27">
                         <use xlink:href="img/sprite_auto.svg#icon-star"></use>
@@ -436,7 +436,7 @@
                   </div>
             </div>
           </div>
-        <label class="form__label form__label--required"><textarea placeholder="Комментарий" id="comment" name="comment" required></textarea></label>
+        <label class="form__label form__label--required" data-required="true"><span class="form__error">Пожалуйста, заполните поле</span><textarea placeholder="Комментарий" id="comment" name="comment"></textarea></label>
         </div>
         <p class="form__button"><button type="submit">Оставить отзыв</button></p>
       </form>

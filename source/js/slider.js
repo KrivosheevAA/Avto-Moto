@@ -34,4 +34,26 @@
     prevButton.disabled = false;
     containerSlide.style.transform = `translateX(${-600 * counter}px)`;
   });
+
+  [].forEach.call(smallPictureSlide, (el, index) => {
+    el.addEventListener('click', () => {
+      counter = index;
+      containerSlide.style.transform = `translateX(${-600 * counter}px)`;
+      if (counter <= 0) {
+        prevButton.disabled = true;
+        nextButton.disabled = false;
+      }
+
+      if (counter > 0 && counter < bigPictureSlide.length - 1) {
+        prevButton.disabled = false;
+        nextButton.disabled = false;
+      }
+
+      if (counter >= bigPictureSlide.length - 1) {
+        nextButton.disabled = true;
+        prevButton.disabled = false;
+      }
+      console.log(counter);
+    })
+  })
 })();
